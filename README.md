@@ -103,7 +103,7 @@ After either above command is run, code coverage reports will be available in
 the `test/coverage` folder.
 
 By default, the test runner is Mocha and Chai.  You can easily change this by
-editting the commented regions of the karma configuration in `Gruntfile.js`.
+editing the commented regions of the karma configuration in `Gruntfile.js`.
 
 ## License ##
 Copyright © 2014 Tim Branyen (@tbranyen)  
