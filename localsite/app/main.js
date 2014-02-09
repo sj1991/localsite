@@ -3,7 +3,7 @@
 require(["config"], function() {
   // Kick off the application.
   require(["app", "router", "views/nav"],
-  	function(app,  Router,   NavView) {
+    function(app,  Router,   NavView) {
     // Define your master router on the application namespace and trigger all
     // navigation from this instance.
     app.router = new Router();

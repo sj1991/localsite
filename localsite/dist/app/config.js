@@ -13,7 +13,14 @@ require.config({
 
     // Map remaining vendor dependencies.
     "jquery": "../vendor/bower/jquery/jquery",
-    "backbone": "../vendor/bower/backbone/backbone"
+    "backbone": "../vendor/bower/backbone/backbone",
+    "handlebars" : "../vendor/bower/handlebars/handlebars.min",
+    "modernizr" : "../vendor/bower/foundation/js/vendor/modernizr",
+    "foundation" : "../vendor/bower/foundation/js/foundation.min",
+
+    //Views
+    "views/nav" : "views/nav"
+
   },
 
   shim: {
@@ -25,6 +32,16 @@ require.config({
 
       // This maps the global `Backbone` object to `require("backbone")`.
       exports: "Backbone"
+    },
+    "handlebars" : {
+      exports: "Handlebars",
+      init: function() {
+        this.Handlebars = Handlebars;
+        return this.Handlebars;
+      }
+    },
+    "foundation" : {
+      deps: ["jquery", "modernizr"]
     }
   }
 });

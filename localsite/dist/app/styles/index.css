@@ -1,6 +1,6 @@
 /*-- HTML5 Boilerplate. -----------------------------------------------------*/
 
-@import "../../vendor/bower/html5-boilerplate/css/normalize.css";
-@import "../../vendor/bower/html5-boilerplate/css/main.css";
-
+@import "../../vendor/bower/foundation/css/normalize.css";
+@import "../../vendor/bower/foundation/css/foundation.css";
+@import "./custom.css";
 /*-- Application stylesheets. -----------------------------------------------*/
