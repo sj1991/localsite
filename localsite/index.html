@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Backbone Boilerplate</title>
+  <title>Evitics</title>
 
   <!-- Application styles. -->
   <!-- build:[href] /styles.min.css -->
@@ -15,8 +15,38 @@
 
 <body>
   <!-- Application container. -->
-  <main role="main" id="main"></main>
+  <div class="off-canvas-wrap">
+    <!-- If no javascript give warning -->
+    <noscript>Please enable javascript</noscript>
 
+    <div class="inner-wrap">
+      <!-- Full Screen Navbar -->
+      <div class="sticky">
+        <nav class="top-bar hide-for-small hide-for-medium NavView" data-topbar></nav>
+      </div>
+
+      <!-- Mobile Side Menu (top bar) -->
+      <div class="sticky">
+        <nav class="tab-bar show-for-small-up hide-for-large-up NavView">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+            <h1 class="title">Evitics</h1>
+          </section>
+        </nav>
+      </div>
+      
+      <!--Mobile side menu content (left pane which slides) -->
+      <aside class="left-off-canvas-menu NavView"></aside>
+      
+      <!-- Main site content -->
+      <main class="site-content row" role="main" >
+      </main>
+      
+      <a class="exit-off-canvas"></a>
+    </div>
+  </div>
   <!-- Application source. -->
   <!-- build:[src] /source.min.js -->
   <script data-main="/app/main" src="/vendor/bower/requirejs/require.js"></script>
