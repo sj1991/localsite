@@ -15,9 +15,11 @@ require.config({
     "jquery": "../vendor/bower/jquery/jquery",
     "backbone": "../vendor/bower/backbone/backbone",
     "handlebars" : "../vendor/bower/handlebars/handlebars.min",
-    "modernizr" : "../vendor/bower/foundation/js/vendor/custom.modernizr",
+    "modernizr" : "../vendor/bower/foundation/js/vendor/modernizr",
     "foundation" : "../vendor/bower/foundation/js/foundation.min",
 
+    //Views
+    "views/nav" : "views/nav"
 
   },
 
