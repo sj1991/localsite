@@ -23,13 +23,16 @@ require.config({
     //Views
     "views/errorPage" : "views/errorPage",
     "views/nav" : "views/nav",
-
+    "views/home" : "views/home",
+    
     //Models
     "models/user" : "models/user",
 
     //Controllers
     "controllers/bindControllers" : "controllers/bindControllers",
-    "controllers/bindLinksToBackbone" : "controllers/bindLinksToBackbone"
+    "controllers/bindLinksToBackbone" : "controllers/bindLinksToBackbone",
+
+    "controllers/home"  : "controllers/home"
     
   },
 

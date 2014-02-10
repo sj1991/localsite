@@ -10,10 +10,13 @@ require(["config"], function() {
         // Define your master router on the application namespace and trigger all
         // navigation from this instance.
         app.router = new Router();
-
-        // Trigger the initial route and enable HTML5 History API support, set the
-        // root folder to '/' by default.  Change in app.js.
-        Backbone.history.start({ pushState: true, root: app.root });
+        /* 
+          A place which stores the current view
+          and or other previous inited views we want to keep
+        */
+        app.views = {
+            current : null //the current view goes here
+        };
 
         // Captures <a href="/...."></a> and forces a backbone.js route
         BindLinksToBackbone(app);
@@ -25,7 +28,10 @@ require(["config"], function() {
         var navView = new NavView({user : user}, {});
         navView.render();
         $(document).foundation();
-
+        
+        // Trigger the initial route and enable HTML5 History API support, set the
+        // root folder to '/' by default.  Change in app.js.
+        Backbone.history.start({ pushState: true, root: app.root });
       },
       failure : function(e)  {
         ( new ErrorPage() ).render("Could not load user: " + JSON.stringify(e));
