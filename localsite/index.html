@@ -47,54 +47,8 @@
       <a class="exit-off-canvas"></a>
     </div>
   </div>
-  <!-- Templates -->
-  <script type="text/template" id="nav/top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Evitics</a></h1>
-      </li>
-    </ul>
-    <section class="top-bar-section"> 
-      <ul class="right">
-        <li class="divider"></li>
-
-        <li class="has-dropdown organizationPicker">
-          <a href="/organizations">Organizations</a>
-          <ul class="dropdown">
-            <li><a href="#changeOrg" data-organizationId="Hi World">Org 1</a></li>
-            <li><a href="#changeOrg" data-organizationId="Hi World2">Org 1</a></li>
-          </ul>
-        </li>
-
-        <li class="divider"></li>
-        <li><a href="/analyitics">Analytics</a></li>
-        <li class="divider"></li>
-        <li><a href="/marketing">Marketing</a></li>
-        <li class="divider"></li>
-        <li><a href="/help">Help</a></li>
-
-        <li class="active"><a href="https://login.gatech.edu/cas/login?service=https://evitics.gatech.edu/login.php">Login</a></li>
-      </ul> 
-      <!-- Left Nav Section --> 
-      <ul class="left">
-      </ul>
-    </section>
-  </script>
-
-  <script type="text/template" id="nav/left-off-canvas">
-    <ul class="off-canvas-list">
-      <li><label>Evitics</label></li>{{name}}
-      <li><a href="/">Home</a></li>
-      <li><a href="/organizations">Organizations</a></li>
-      <li><a href="/analyitics">Analyitics</a></li>
-      <li><a href="/marketing">Marketing</a></li>
-      <li><a href="/help">Help</a></li>
-      <li><a href="https://login.gatech.edu/cas/login?service=https://critique.gatech.edu">Login</a></li>
-    </ul>
-  </script>
+  
   <script>
-    //place to store rendered templates 
-    var templates = {};
     //make sure that the side mobile nav is at least the full window height
     (function() {
       document.getElementsByClassName('inner-wrap')[0].style.minHeight = window.innerHeight + 'px';

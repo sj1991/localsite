@@ -17,6 +17,8 @@ require.config({
     "handlebars" : "../vendor/bower/handlebars/handlebars.min",
     "modernizr" : "../vendor/bower/foundation/js/vendor/modernizr",
     "foundation" : "../vendor/bower/foundation/js/foundation.min",
+    //templates
+    "templates" : "../templates",
 
     //Views
     "views/nav" : "views/nav"

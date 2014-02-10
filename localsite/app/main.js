@@ -2,8 +2,11 @@
 // assist with testing.
 require(["config"], function() {
   // Kick off the application.
-  require(["app", "router", "views/nav"],
-    function(app,  Router,   NavView) {
+  require(["app", "router", "views/nav", "templates"],
+    function(app,  Router,   NavView, templates) {
+      for(var key in templates) {
+        alert(key);
+      }
     // Define your master router on the application namespace and trigger all
     // navigation from this instance.
     app.router = new Router();

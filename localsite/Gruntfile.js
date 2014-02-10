@@ -7,7 +7,22 @@ module.exports = function(grunt) {
 
     // Run your source code through JSHint's defaults.
     jshint: ["app/**/*.js"],
-
+    
+    // Compile handlebars templates
+    handlebars : {
+      compile : {
+        options : {
+          namespace: 'templates',
+          amd : true,
+          processName : function(filePath) {
+            return filePath.replace(/^app\/templates\//,'').replace(/\.hbs$/,'');
+         }
+        },
+        files : {
+          "templates.js" : [ "app/templates/**/*.hbs" ],
+        },
+      }
+    },
     // This task uses James Burke's excellent r.js AMD builder to take all
     // modules and concatenate them into a single file.
     requirejs: {
@@ -105,7 +120,8 @@ module.exports = function(grunt) {
       release: {
         files: [
           { src: ["app/**"], dest: "dist/" },
-          { src: "vendor/**", dest: "dist/" }
+          { src: "vendor/**", dest: "dist/" },
+          { src: "templates.js", dest: "dist/" }
         ]
       }
     },
@@ -190,7 +206,7 @@ module.exports = function(grunt) {
         coverage_dir: "test/coverage/PhantomJS 1.9.2 (Linux)/"
       }
     }
-  });
+});
 
   // Grunt contribution tasks.
   grunt.loadNpmTasks("grunt-contrib-clean");
@@ -198,12 +214,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-compress");
-
+  
   // Third-party tasks.
   grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-karma-coveralls");
   grunt.loadNpmTasks("grunt-processhtml");
-
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
   // Grunt BBB tasks.
   grunt.loadNpmTasks("grunt-bbb-server");
   grunt.loadNpmTasks("grunt-bbb-requirejs");
@@ -214,9 +230,10 @@ module.exports = function(grunt) {
     "clean",
     "jshint",
     "processhtml",
+    "handlebars",
     "copy",
     "requirejs",
     "styles",
-    "cssmin",
+    "cssmin"
   ]);
 };

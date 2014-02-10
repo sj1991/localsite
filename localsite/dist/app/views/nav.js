@@ -1,16 +1,13 @@
-define(['jquery', 'handlebars', 'foundation', 'backbone'],
-function($,   Handlebars,   foundation, Backbone) {
+define(['jquery', 'handlebars', 'foundation', 'backbone', 'templates'],
+function($,   Handlebars,   foundation, Backbone, templates) {
   var NavView = Backbone.View.extend({
     initialize: function(models, params) {
-      this.loadTemplates();
-    },
-    loadTemplates : function() {
-      templates.topNav =  Handlebars.compile(document.getElementById('nav/top-bar').text);
-      templates.leftOffCanvas = Handlebars.compile(document.getElementById('nav/left-off-canvas').text);
+      
     },
     render : function() {
-      $('.top-bar').html(templates.topNav());
-      $('.left-off-canvas-menu').html(templates.leftOffCanvas());
+      alert(templates['nav/leftOffCanvas']());
+      $('.top-bar').html(templates['nav/topBar']());
+      $('.left-off-canvas-menu').html(templates['nav/leftOffCanvas']());
       $(document).foundation();
     }
 
