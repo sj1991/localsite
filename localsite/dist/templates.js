@@ -20,6 +20,20 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   }));
 
+this["templates"]["404"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<div class=\"row\">\n  <div class=\"small-12 columns\">\n    <h1>404: Something Went Wrong</h1>\n    <h4>";
+  if (stack1 = helpers.errMsg) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.errMsg); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</h4>\n  </div>\n</div>";
+  return buffer;
+  });
+
 this["templates"]["example"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
@@ -66,7 +80,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<ul class=\"title-area\">\n  <li class=\"name\">\n    <h1><a href=\"/\">Evitics</a></h1>\n  </li>\n</ul>\n<section class=\"top-bar-section\"> \n  <ul class=\"right\">\n    <li class=\"divider\"></li>\n\n    <li class=\"has-dropdown organizationPicker\">\n      <a href=\"/organizations\">Organizations</a>\n      <ul class=\"dropdown\">\n        <li><a href=\"#changeOrg\" data-organizationId=\"Hi World\">Org 1</a></li>\n        <li><a href=\"#changeOrg\" data-organizationId=\"Hi World2\">Org 1</a></li>\n      </ul>\n    </li>\n\n    <li class=\"divider\"></li>\n    <li><a href=\"/analyitics\">Analytics</a></li>\n    <li class=\"divider\"></li>\n    <li><a href=\"/marketing\">Marketing</a></li>\n    <li class=\"divider\"></li>\n    <li><a href=\"/help\">Help</a></li>\n\n    <li class=\"active\"><a href=\"https://login.gatech.edu/cas/login?service=https://evitics.gatech.edu/login.php\">Login</a></li>\n  </ul> \n  <!-- Left Nav Section --> \n  <ul class=\"left\">\n  </ul>\n</section>";
+  return "<ul class=\"title-area\">\n  <li class=\"name\">\n    <h1><a href=\"/\">Evitics</a></h1>\n  </li>\n</ul>\n<section class=\"top-bar-section\"> \n  <ul class=\"right\">\n    <li class=\"divider\"></li>\n\n    <li class=\"has-dropdown organizationPicker\">\n      <a href=\"/organizations\">Organizations</a>\n      <ul class=\"dropdown\">\n        <li><a href=\"#changeOrg\" data-organizationId=\"IEEE\">IEEE</a></li>\n        <li><a href=\"#changeOrg\" data-organizationId=\"SGA\">SGA</a></li>\n        <li><a href=\"#joinOrg\">Join an Organization</a></li>\n      </ul>\n    </li>\n\n    <li class=\"divider\"></li>\n    <li><a href=\"/analyitics\">Analytics</a></li>\n    <li class=\"divider\"></li>\n    <li><a href=\"/marketing\">Marketing</a></li>\n    <li class=\"divider\"></li>\n    <li><a href=\"/help\">Help</a></li>\n\n    <li class=\"active\"><a href=\"https://login.gatech.edu/cas/login?service=https://evitics.gatech.edu/login.php\">Login</a></li>\n  </ul> \n  <!-- Left Nav Section --> \n  <ul class=\"left\">\n  </ul>\n</section>";
   });
 
 return this["templates"];

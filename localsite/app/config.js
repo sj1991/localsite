@@ -21,8 +21,16 @@ require.config({
     "templates" : "../templates",
 
     //Views
-    "views/nav" : "views/nav"
+    "views/errorPage" : "views/errorPage",
+    "views/nav" : "views/nav",
 
+    //Models
+    "models/user" : "models/user",
+
+    //Controllers
+    "controllers/bindControllers" : "controllers/bindControllers",
+    "controllers/bindLinksToBackbone" : "controllers/bindLinksToBackbone"
+    
   },
 
   shim: {
