@@ -1,0 +1,16 @@
+/*
+  set container width
+*/
+.site-content {
+    max-width: 65rem ;
+}
+/*
+  When page width >= .site-content, set fixed-top-right
+*/
+@media(min-width: 65rem) {
+  .large-6.fixed-top-right {
+    width: calc(65rem*6/12);
+    position: fixed;
+    top: 45px;
+  }
+}

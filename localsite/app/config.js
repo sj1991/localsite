@@ -24,6 +24,7 @@ require.config({
     "views/errorPage" : "views/errorPage",
     "views/nav" : "views/nav",
     "views/home" : "views/home",
+    "views/analyitics" : "views/analyitics",
     
     //Models
     "models/user" : "models/user",
@@ -32,7 +33,8 @@ require.config({
     "controllers/bindControllers" : "controllers/bindControllers",
     "controllers/bindLinksToBackbone" : "controllers/bindLinksToBackbone",
 
-    "controllers/home"  : "controllers/home"
+    "controllers/home"  : "controllers/home",
+    "controllers/analyitics" : "controllers/analyitics"
     
   },
 

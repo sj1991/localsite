@@ -3,8 +3,8 @@ function($,        Backbone,   templates) {
   var HomeView = Backbone.View.extend({
     el : '.site-content',
     render : function() {
-      alert("Rendering Home View");
-      this.$el.html(templates['home/main']());
+      document.body.innerHTML += "HI";
+      alert("Rendering Analyitics View");
     }
   });
   return HomeView;
