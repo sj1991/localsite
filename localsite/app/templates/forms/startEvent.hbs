@@ -1,0 +1,36 @@
+<h3>Start an Event</h3>
+<form class="startEventForm">
+  <div class="row collapse">
+    <label>Organization</label>
+    <div class="small-10 medium-11 columns">
+      <select>
+        <option>--Please Select One--</option>
+        <option>IEEE</option>
+        <option>SGA</option>
+        <option>Join an Organization</option>
+      </select>
+    </div>
+    <div class="small-1 small-pull-1 medium-1 medium-pull-0 columns">
+      <button class="postfix secondary joinAnOrganization">+</button>
+    </div>
+  </div>
+
+  <div class="row collapse">
+    <label>Event Name</label>
+    <div class="small-10 medium-11 columns">
+      <select disabled="disabled">
+        <option>--Please Select One--</option>
+      </select>
+    </div>
+    <div class="small-1 small-pull-1 medium-1 medium-pull-0 columns">
+      <button class="postfix secondary" data-reveal-id="createNewEventModal">+</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <button type="submit" class="button startEvent">Start Event</button>
+    </div>
+  </div>
+</form>
+{{> createNewEventModal }}

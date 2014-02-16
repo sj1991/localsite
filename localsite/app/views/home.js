@@ -1,10 +1,19 @@
-define(['jquery', 'backbone', 'templates'],
-function($,        Backbone,   templates) {
+define(['jquery', 'backbone', 'templates', 'views/startEventForm'],
+function($,        Backbone,   templates,   StartEventFormView) {
   var HomeView = Backbone.View.extend({
     el : '.site-content',
+    events : {
+    },
     render : function() {
-      alert("Rendering Home View");
       this.$el.html(templates['home/main']());
+      
+      this.eventForm = new StartEventFormView();
+      this.eventForm.render();
+    },
+    remove : function() {
+      this.eventForm.remove();
+      this.stopListening();
+      this.$el.remove();
     }
   });
   return HomeView;

@@ -4,6 +4,11 @@
 .site-content {
     max-width: 65rem ;
 }
+a.button.secondary {
+  border-color:#B9B9B9;
+  border-style:solid;
+  border-width:1px;
+}
 /*
   When page width >= .site-content, set fixed-top-right
 */
