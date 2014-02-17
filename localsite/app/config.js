@@ -21,21 +21,30 @@ require.config({
     "templates" : "../templates",
 
     //Views
-    "views/errorPage" : "views/errorPage",
-    "views/nav" : "views/nav",
-    "views/home" : "views/home",
-    "views/analyitics" : "views/analyitics",
+    "views/errorPage"           :  "views/errorPage",
+    "views/loading"             :  "views/loading",
+    "views/nav"                 :  "views/nav",
+    "views/home"                :  "views/home",
+    "views/analyitics"          :  "views/analyitics",
+    "views/startEventForm"      :  "views/startEventForm",
+    "views/organizations/info"  :  "views/organizations/info",
+    "views/organizations/list"  :  "views/organizations/list",
     
     //Models
     "models/user" : "models/user",
+    "models/organization" : "models/organization",
+
+    //Collections
+    "collections/organizations" : "collections/organizations",
 
     //Controllers
     "controllers/bindControllers" : "controllers/bindControllers",
     "controllers/bindLinksToBackbone" : "controllers/bindLinksToBackbone",
 
     "controllers/home"  : "controllers/home",
-    "controllers/analyitics" : "controllers/analyitics"
-    
+    "controllers/analyitics" : "controllers/analyitics",
+    "controllers/triggers/new" : "controllers/triggers/new",
+    "controllers/organizations" : "controllers/organizations"
   },
 
   shim: {

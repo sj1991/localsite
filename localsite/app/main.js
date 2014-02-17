@@ -3,7 +3,7 @@
 require(["config"], function() {
   // Kick off the application.
   require(["app", "router", "foundation", "views/errorPage", "models/user", "views/nav", "controllers/bindLinksToBackbone", "controllers/bindControllers" ],
-  function( app,   Router,   foundation,   ErrorPage,         User,          NavView,     BindLinksToBackbone,               BindControllers) {
+  function( app,   Router,   foundation,   ErrorPage,         User,          NavView,     bindLinksToBackbone,               bindControllers) {
     var user = new User({id: userId});
     user.fetch({
       success : function(user) {
@@ -19,10 +19,10 @@ require(["config"], function() {
         };
 
         // Captures <a href="/...."></a> and forces a backbone.js route
-        BindLinksToBackbone(app);
+        bindLinksToBackbone(app);
 
         // This code binds the new route events to each controller
-        BindControllers(app);
+        bindControllers(app);
         
         // Show the Nav
         var navView = new NavView({user : user}, {});
@@ -33,8 +33,8 @@ require(["config"], function() {
         // root folder to '/' by default.  Change in app.js.
         Backbone.history.start({ pushState: true, root: app.root });
       },
-      failure : function(e)  {
-        ( new ErrorPage() ).render("Could not load user: " + JSON.stringify(e));
+      error : function(m, r)  {
+        ( new ErrorPage() ).render("Could not load user: " + JSON.stringify(r));
       }
     });
   });

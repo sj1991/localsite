@@ -1,8 +1,8 @@
 define(["jquery", "backbone", "views/analyitics"],
 function($,        Backbone,   AnalyiticsView) {
-  function analyiticsController() {
+  function AnalyiticsController() {
     this.view = new AnalyiticsView([],{});
     this.view.render();
   }
-  return analyiticsController;
+  return AnalyiticsController;
 });

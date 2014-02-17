@@ -4,7 +4,10 @@ function($      ,  foundation ,  Backbone,   templates) {
     el : '.startEventForm',
     events : {
       'click button.joinAnOrganization' : 'joinAnOrganization',
-      'click button.startEvent' : 'startEvent',
+      'click button.startEvent' : 'startEvent'
+    },
+    closeModal : function() {
+      this.$createNewEventModal.foundation('reveal', 'close');
     },
     createAnEvent : function() {
       var name = this.$createNewEventModal.find(".name").val();
@@ -15,6 +18,7 @@ function($      ,  foundation ,  Backbone,   templates) {
         end   :  triggerDiv.find(".end").val()
       };
       alert("todo\nname:" + name + "\ntriggers:\n" + JSON.stringify(triggers));
+      this.closeModal();
     },
     joinAnOrganization : function(ev) {
       ev.preventDefault();
@@ -24,19 +28,31 @@ function($      ,  foundation ,  Backbone,   templates) {
     render : function() {
       this.$el.html(templates['forms/startEvent']());
       this.$el.foundation();
-      
+
+      this.$createNewEventModal = $("#createNewEventModal");
+      this.bindModalEvents();
+    },
+    bindModalEvents : function() {
       //Bind ot valid form submission
       var that = this;
-      this.$createNewEventModal = $("#createNewEventModal");
-      this.$createNewEventModal.off('valid');
+      this.unbindModalEvents();
       this.$createNewEventModal.on('valid', function(ev) {
         that.createAnEvent();
       });
+      this.$createNewEventModal.find('a.addEvTrigger').on('click', function(ev) {
+        that.$createNewEventModal.foundation('reveal', 'close');
+      });
+    },
+    unbindModalEvents : function() {
+      this.$createNewEventModal.off();
     },
     remove : function() {
       this.stopListening();
+      this.unbindModalEvents();
+      //Make sure the modal actually removes itself (ugh)
+      this.$createNewEventModal.remove();
+
       this.$el.remove();
-      this.$el.find('button.createAnEvent').off('click');
     }
   });
   return StartEventFormView;

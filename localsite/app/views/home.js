@@ -6,14 +6,13 @@ function($,        Backbone,   templates,   StartEventFormView) {
     },
     render : function() {
       this.$el.html(templates['home/main']());
-      
       this.eventForm = new StartEventFormView();
       this.eventForm.render();
     },
     remove : function() {
       this.eventForm.remove();
       this.stopListening();
-      this.$el.remove();
+      this.$el.html('');
     }
   });
   return HomeView;

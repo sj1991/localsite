@@ -1,8 +1,8 @@
 define(["jquery", "backbone", "views/home"],
 function($,        Backbone,   HomeView) {
-  function homeController() {
-    this.view = new HomeView([],{});
-    this.view.render();
-  }
-  return homeController;
+  var HomeController = function(app) {
+    app.views.current = new HomeView([],{});
+    app.views.current.render();
+  };
+  return HomeController;
 });

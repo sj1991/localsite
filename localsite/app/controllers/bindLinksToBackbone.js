@@ -3,7 +3,7 @@
   and captures a 'click' action.  It then triggers
   the route associated with said link path
 
-  E.g usage: bindLinksToBackbone(app)
+  E.g usage: new BindLinksToBackbone(app)
 */
 define(['jquery', 'backbone'],
 function($,        Backbone) {
@@ -18,6 +18,10 @@ function($,        Backbone) {
           // Remove old view
           if(app.views.current && app.views.current.remove) {
               app.views.current.remove();
+          }
+          // Remove reference to old controller
+          if(app.controller) {
+            app.controller = null;
           }
           app.router.navigate(url, { trigger: true });
           /*
