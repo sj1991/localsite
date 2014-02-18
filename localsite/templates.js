@@ -128,28 +128,74 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<ul class=\"title-area\">\n  <li class=\"name\">\n    <h1><a href=\"/\">Evitics</a></h1>\n  </li>\n</ul>\n<section class=\"top-bar-section\"> \n  <ul class=\"right\">\n    <li class=\"divider\"></li>\n\n    <li class=\"has-dropdown organizationPicker\">\n      <a href=\"/organizations\">Organizations</a>\n      <ul class=\"dropdown\">\n        <li><a href=\"#joinOrg\">Join</a></li>\n        <li><a href=\"#addOrg\">Add</a></li>\n        <li><a href=\"/organizations/manage\">Leave</a></li>\n        <li><a href=\"/organizations\">View All</a></li>\n      </ul>\n    </li>\n\n    <li class=\"divider\"></li>\n    <li><a href=\"/analyitics\">Analytics</a></li>\n    <li class=\"divider\"></li>\n    <li><a href=\"/marketing\">Marketing</a></li>\n    <li class=\"divider\"></li>\n    <li><a href=\"/help\">Help</a></li>\n\n    <li class=\"active\"><a href=\"https://login.gatech.edu/cas/login?service=https://evitics.gatech.edu/login.php\">Login</a></li>\n  </ul> \n  <!-- Left Nav Section --> \n  <ul class=\"left\">\n  </ul>\n</section>";
   });
 
-this["templates"]["organizations/list"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["templates"]["organization/info"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  
+  return "\n        <button class=\"alert\">Leave Organization</button>\n      ";
+  }
+
+function program3(depth0,data) {
+  
+  
+  return "\n        <button>Join Organization</button>\n      ";
+  }
+
+  buffer += "<div class=\"small-12 columns\">\n  <div class=\"row \">\n      <h2><img class=\"org-logo\" src=\""
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.img)),stack1 == null || stack1 === false ? stack1 : stack1.src)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\"></img>";
+  if (stack2 = helpers.name) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = (depth0 && depth0.name); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
+  buffer += escapeExpression(stack2)
+    + "</h2>\n  </div>\n  <div class=\"row collapse\">\n    <div class=\"small-12\">\n      <p>\n        ";
+  if (stack2 = helpers.description) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = (depth0 && depth0.description); stack2 = typeof stack2 === functionType ? stack2.call(depth0, {hash:{},data:data}) : stack2; }
+  buffer += escapeExpression(stack2)
+    + "\n      </p>\n    </div>\n  </div>\n  <div class=\"row collapse\">\n    <div class=\"small-12\">\n      ";
+  stack2 = helpers['if'].call(depth0, (depth0 && depth0.joined), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n    </div>\n  </div>\n</div>";
+  return buffer;
+  });
+
+this["templates"]["organization/list"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n  <li>\n    <h4>";
+  buffer += "\n    <li>\n      <a class=\"th ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.joined), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\" href=\"/organizations/";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">\n        <h4>";
   if (stack1 = helpers.name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.name); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</h4>\n    <img style=\"height: 100px;\" class=\"th\" src=\""
+    + "</h4>\n        <img src=\""
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.img)),stack1 == null || stack1 === false ? stack1 : stack1.src)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "\"></img><br/>\n    <button>Join</button>\n  </li>\n";
+    + "\"></img><br/>\n      </a>\n    </li>\n  ";
   return buffer;
   }
+function program2(depth0,data) {
+  
+  
+  return "joined";
+  }
 
-  buffer += "<ul class=\"small-block-grid-2 medium-block-grid-3 large-block-grid-4\">\n";
+  buffer += "<div class=\"small-12 columns\">\n  <h3>Organizations:</h3>\n  <ul class=\"small-block-grid-2 medium-block-grid-5 large-block-grid-6 organization-list\">\n  ";
   stack1 = helpers.each.call(depth0, depth0, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</ul>\n";
+  buffer += "\n  </ul>\n</div>";
   return buffer;
   });
 

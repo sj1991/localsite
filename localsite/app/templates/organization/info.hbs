@@ -1,0 +1,21 @@
+<div class="small-12 columns">
+  <div class="row ">
+      <h2><img class="org-logo" src="{{img.src}}"></img>{{name}}</h2>
+  </div>
+  <div class="row collapse">
+    <div class="small-12">
+      <p>
+        {{description}}
+      </p>
+    </div>
+  </div>
+  <div class="row collapse">
+    <div class="small-12">
+      {{#if joined}}
+        <button class="alert">Leave Organization</button>
+      {{else}}
+        <button>Join Organization</button>
+      {{/if}}
+    </div>
+  </div>
+</div>

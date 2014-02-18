@@ -25,7 +25,7 @@ require(["config"], function() {
         bindControllers(app);
         
         // Show the Nav
-        var navView = new NavView({user : user}, {});
+        var navView = new NavView({user : user});
         navView.render();
         $(document).foundation();
         

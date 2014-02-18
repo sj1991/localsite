@@ -1,8 +1,8 @@
 define(['jquery', 'backbone', 'templates'],
 function($,        Backbone,   templates) {
   var NavView = Backbone.View.extend({
-    initialize: function(models, params) {
-      
+    initialize: function(options) {
+      this.user = options.user;
     },
     render : function() {
       $('.top-bar').html(templates['nav/topBar']());

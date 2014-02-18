@@ -35,7 +35,7 @@ require.config({
     "models/organization" : "models/organization",
 
     //Collections
-    "collections/organizations" : "collections/organizations",
+    "collections/organization" : "collections/organization",
 
     //Controllers
     "controllers/bindControllers" : "controllers/bindControllers",
@@ -44,7 +44,7 @@ require.config({
     "controllers/home"  : "controllers/home",
     "controllers/analyitics" : "controllers/analyitics",
     "controllers/triggers/new" : "controllers/triggers/new",
-    "controllers/organizations" : "controllers/organizations"
+    "controllers/organization" : "controllers/organization"
   },
 
   shim: {

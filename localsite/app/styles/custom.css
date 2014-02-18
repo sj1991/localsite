@@ -19,3 +19,22 @@ a.button.secondary {
     top: 45px;
   }
 }
+.org-logo {
+  height: 50px;
+  margin-right: 10px;
+}
+.joined {
+  border-color: #3A945B #3A945B;
+}
+.organization-list > li > a {
+  width: 150px;
+}
+.organization-list h4{
+  margin: 0;
+  padding:0;
+  text-align: center;
+}
+.organization-list img {
+  height: 100px;
+  width: 150px;
+}

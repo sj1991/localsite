@@ -11,7 +11,7 @@ define(function(require, exports, module) {
       "analyitics(/)" : "analyitics",
       "triggers/new/:triggerType" : "newTrigger",
       "organizations(/)" : "organizations",
-      "organizations/:organizationName" : "organizations",
+      "organizations/:orgId" : "organizations",
     },
 
     index: function() {
