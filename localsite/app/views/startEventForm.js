@@ -3,7 +3,6 @@ function($      ,  foundation ,  Backbone,   templates) {
   var StartEventFormView = Backbone.View.extend({
     el : '.startEventForm',
     events : {
-      'click button.joinAnOrganization' : 'joinAnOrganization',
       'click button.startEvent' : 'startEvent'
     },
     closeModal : function() {
@@ -20,10 +19,10 @@ function($      ,  foundation ,  Backbone,   templates) {
       alert("todo\nname:" + name + "\ntriggers:\n" + JSON.stringify(triggers));
       this.closeModal();
     },
-    joinAnOrganization : function(ev) {
+    startEvent : function(ev) {
       ev.preventDefault();
       ev.stopPropagation();
-      alert("Join an org");
+      alert('todo - start event stuff');
     },
     render : function() {
       this.$el.html(templates['forms/startEvent']());
