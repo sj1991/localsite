@@ -1,11 +1,13 @@
 define(["jquery", "backbone", "models/organization", "collections/organization", "views/organization/list", "views/organization/info", "views/errorPage", "views/loading"],
 function($,        Backbone,   OrganizationModel   ,  OrganizationCollection   ,  OrganizationList         ,  OrganizationInfo         ,  ErrorPage       ,  LoadingView) {
-  var OrganizationController = function(app, orgId) {
-    this.app = app;
-    if(typeof orgId === 'undefined') {
+  var OrganizationController = function(options) {
+    this.app = options.app;
+    this.user = options.user;
+    if(typeof options.orgId === 'undefined') {
       this.showOrganizationList();
     } else {
-      this.showOrganization(orgId);
+      this.orgId = options.orgId;
+      this.showOrganization(options.orgId);
     }
   };
 
@@ -29,8 +31,9 @@ function($,        Backbone,   OrganizationModel   ,  OrganizationCollection   ,
 
     //Fetch a list of organizations
     var that = this;
-    var organizationCollection = new OrganizationCollection({});
+    var organizationCollection = new OrganizationCollection({user: this.user});
     organizationCollection.fetch({
+      user : this.user, //Here so that the model gets the user obj
       success : function() {
         that.app.views.current = new OrganizationList({organizations: organizationCollection});
         that.removeLoadingView();
@@ -51,7 +54,7 @@ function($,        Backbone,   OrganizationModel   ,  OrganizationCollection   ,
 
     //fetch the organization
     var that = this;
-    var organizationModel = new OrganizationModel({id : orgId});
+    var organizationModel = new OrganizationModel({id : orgId, user: this.user});
     organizationModel.fetch({
       success : function() {
         that.app.views.current = new OrganizationInfo({organization: organizationModel});

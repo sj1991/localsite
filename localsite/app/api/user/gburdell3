@@ -9,8 +9,10 @@
     "number" : "5554448888",
     "carrier" : "ATT"
   },
-  "organizations" : {
-    "IEEE" : {
+  "organizations" : [
+    {
+      "id" : 1,
+      "name" : "IEEE",
       "fullName" : "Institute of Electrical and Electronics Engineers",
       "permissions" : {
         "read" : true,
@@ -26,26 +28,11 @@
             "carrier" : "ATT"
           }
         ]
-      },
-      "branches" : {
-        "hardwareTeam" : {
-          "read" : true,
-          "write" : true,
-          "addMembers" : false
-        },
-        "softwareTeam" : {
-          "read" : false,
-          "write" : false,
-          "addMembers" : false
-        },
-        "board" : {
-          "read" : true,
-          "write" : true,
-          "addMembers" : true
-        }
       }
     },
-    "SGA" : {
+    {
+      "id" : 2,
+      "name" : "SGA",
       "fullName" : "Student Body Government",
       "permissions": {
         "read" : true,
@@ -61,31 +48,7 @@
             "carrier" : "ATT"
           }
         ]
-      },
-      "branches" : {
-        "Executive" : {
-          "read" : true,
-          "write" : true,
-          "addMembers" : false
-        },
-        "Legislative" : {
-          "read" : false,
-          "write" : false,
-          "addMembers" : false
-        },
-        "Committees" : {
-          "IT Committee" : {
-            "read" : true,
-            "write" : true,
-            "addMembers" : true
-          },
-          "Sustainability" : {
-            "read" : false,
-            "write" : false,
-            "addMembers" : false
-          }
-        }
       }
     }
-  }
+  ]
 }

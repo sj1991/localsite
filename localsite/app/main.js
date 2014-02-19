@@ -22,7 +22,7 @@ require(["config"], function() {
         bindLinksToBackbone(app);
 
         // This code binds the new route events to each controller
-        bindControllers(app);
+        bindControllers(app, user);
         
         // Show the Nav
         var navView = new NavView({user : user});

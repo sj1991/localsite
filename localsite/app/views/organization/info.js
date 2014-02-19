@@ -4,6 +4,7 @@ function($,        Backbone,   templates) {
     el : '.site-content',
     initialize : function(options) {
       this.organization = options.organization;
+      this.user = options.user;
     },
     render : function() {
       this.$el.html(templates['organization/info'](this.organization.toJSON()));
