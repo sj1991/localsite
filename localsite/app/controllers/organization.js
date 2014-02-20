@@ -33,9 +33,9 @@ function($,        Backbone,   OrganizationModel   ,  OrganizationCollection   ,
     var that = this;
     var organizationCollection = new OrganizationCollection({user: this.user});
     organizationCollection.fetch({
-      user : this.user, //Here so that the model gets the user obj
+      user : that.user, //Here so that the model gets the user obj
       success : function() {
-        that.app.views.current = new OrganizationList({organizations: organizationCollection});
+        that.app.views.current = new OrganizationList({organizations: organizationCollection, user: that.user});
         that.removeLoadingView();
         that.app.views.current.render();
       },
@@ -57,7 +57,7 @@ function($,        Backbone,   OrganizationModel   ,  OrganizationCollection   ,
     var organizationModel = new OrganizationModel({id : orgId, user: this.user});
     organizationModel.fetch({
       success : function() {
-        that.app.views.current = new OrganizationInfo({organization: organizationModel});
+        that.app.views.current = new OrganizationInfo({organization: organizationModel, user: that.user});
         that.removeLoadingView();
         that.app.views.current.render();
       },

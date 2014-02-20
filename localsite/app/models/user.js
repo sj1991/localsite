@@ -1,19 +1,22 @@
-define(['backbone'],
-function(backbone) {
+define(['backbone', "collections/organization"],
+function(backbone,   OrganizationCollection) {
   var UserModel = Backbone.Model.extend({
     initialize: function(options) {
       this.set('id', options.id);
     },
+    parse : function(res) {
+      //convert to organization collection
+      res.organizations = new OrganizationCollection(res.organizations);
+      return res;
+    },
     urlRoot : '/app/api/user/',
-    belongsToOrg : function(options) {
-      var id = options.id;
-      var usersOrganizations = this.get('organizations');
-      for(var i = 0, l = usersOrganizations.length; i < l; ++i) {
-        if(usersOrganizations[i].id == id) {
-          return true;
-        }
-      }
-      return false;
+    getOrgIdArr : function() {
+      var organizations = this.get('organizations');
+      var output = [];
+      organizations.each(function(organization) {
+        output.push(organization.id);
+      });
+      return output;
     }
   });
   return UserModel;
