@@ -3,7 +3,10 @@
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
 
-//Load any needed controllers
+//Change the http Content-type header to json
+$app->response()['Content-Type']="application/json";
+
+//Load only the needed controllers 
 spl_autoload_register(function ($class_name) {
     $file = 'controllers/' . $class_name. '.php';
     if (file_exists($file)) {
