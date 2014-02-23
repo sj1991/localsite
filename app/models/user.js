@@ -9,7 +9,7 @@ function(backbone,   OrganizationCollection) {
       res.organizations = new OrganizationCollection(res.organizations);
       return res;
     },
-    urlRoot : '/app/api/user/',
+    urlRoot : '/api/user/',
     getOrgIdArr : function() {
       var organizations = this.get('organizations');
       var output = [];

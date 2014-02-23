@@ -5,7 +5,7 @@ function(backbone ,  OrganizationModel) {
     initialize: function(options) {
       this.user = options.user;
     },
-    url : '/app/api/organizations/index.php'
+    url : '/api/organizations'
   });
   return OrganizationsCollection;
 });

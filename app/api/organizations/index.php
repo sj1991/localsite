@@ -68,7 +68,7 @@
       "description" : "DELETEME"
     }
   ]';
- 
+ echo $json; die();
  $out = json_decode($json);
 
  echo "\n\n\n";
