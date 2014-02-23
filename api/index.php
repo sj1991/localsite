@@ -4,7 +4,9 @@ require 'vendor/autoload.php';
 $app = new \Slim\Slim();
 
 //Change the http Content-type header to json
-$app->response()['Content-Type']="application/json";
+$app->response()['Content-Type']="application/json; charset=utf-8";
+//Internal string encoding is utf-8
+mb_internal_encoding("UTF-8"); 
 
 //Load only the needed controllers 
 spl_autoload_register(function ($class_name) {

@@ -9,7 +9,7 @@ function(backbone) {
       this.user = options.user;
     },
     url : function() {
-      return '/app/api/organizations/index.php?id=' + this.id;
+      return '/api/organization/' + this.id;
     }
   });
   return OrganizationModel;
