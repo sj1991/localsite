@@ -10,7 +10,7 @@ mb_internal_encoding("UTF-8");
 
 //Load only the needed controllers 
 spl_autoload_register(function ($class_name) {
-    $file = 'controllers/' . $class_name. '.php';
+    $file = 'routes/' . $class_name. '.php';
     if (file_exists($file)) {
         require_once($file);
     }
