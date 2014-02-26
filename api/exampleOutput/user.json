@@ -33,7 +33,11 @@
       "img" : {
         "src" : "http://jacketpages.gatech.edu/img/28204/ieee.jpg"
       },
-      "description" : "Sample description. blah blah blah"
+      "description" : "Sample description. blah blah blah",
+      "meetings" : [
+        { "id" : 1, "name" : "Board Meeting" },
+        { "id" : 2, "name" : "Donut Friday" }
+      ]
     },
     {
       "id" : 2,
@@ -58,7 +62,11 @@
       "img" : {
         "src" : "http://jacketpages.gatech.edu/img/27752/sga.png"
       },
-      "description" : "Sample description. blah blah blah"
+      "description" : "Sample description. blah blah blah",
+      "meetings" : [
+        { "id" : 1, "name" : "UHR" },
+        { "id" : 2, "name" : "Executive Board Meeting" }
+      ]
     }
   ]
 }
