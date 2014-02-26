@@ -40,7 +40,7 @@ require.config({
     //Controllers
     "controllers/bindControllers" : "controllers/bindControllers",
     "controllers/bindLinksToBackbone" : "controllers/bindLinksToBackbone",
-
+    
     "controllers/home"  : "controllers/home",
     "controllers/analyitics" : "controllers/analyitics",
     "controllers/triggers/new" : "controllers/triggers/new",

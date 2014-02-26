@@ -49,6 +49,9 @@ function($      ,  foundation ,  Backbone,   templates) {
         meetingDropdown.html('');
         //disable start meeting button
         this.$el.find('.startMeeting').prop('disabled', true);
+        //disable the new meeting button
+        debug = this.$el;
+        this.$el.find('.revealNewMeetingModal').addClass('disabled');
       }
     },
     showMeetingsFor : function(orgId) {
@@ -57,12 +60,12 @@ function($      ,  foundation ,  Backbone,   templates) {
       //display organizations meetings
       var meetingDropdown = this.$el.find('.meeting-dropdown');
       meetingDropdown.html(html);
-
       //make sure the meeting select dropdown is enabled
       meetingDropdown.removeAttr('disabled');
- 
-      //enable the start butotn
+      //enable the start button
       this.$el.find('.startMeeting').removeAttr('disabled');
+      //enable the new meeting button
+      this.$el.find('.revealNewMeetingModal').removeClass('disabled');
     },
     startMeeting : function(ev) {
       ev.preventDefault();
@@ -92,7 +95,6 @@ function($      ,  foundation ,  Backbone,   templates) {
       });
 
       //Bind ot valid form submission
-      debug = this.$newMeetingModal;
       this.$newMeetingModal.on('valid', function(ev) {
         that.createAMeeting(ev);
       });
