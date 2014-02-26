@@ -1,5 +1,5 @@
-define(['jquery', 'backbone', 'templates', 'views/startEventForm'],
-function($,        Backbone,   templates,   StartEventFormView) {
+define(['jquery', 'backbone', 'templates', 'views/startMeetingForm'],
+function($,        Backbone,   templates,   StartMeetingFormView) {
   var HomeView = Backbone.View.extend({
     el : '.site-content',
     events : {
@@ -12,11 +12,11 @@ function($,        Backbone,   templates,   StartEventFormView) {
     },
     render : function() {
       this.$el.html(templates['home/main']());
-      this.eventForm = new StartEventFormView({user: this.user});
-      this.eventForm.render();
+      this.meetingForm = new StartMeetingFormView({user: this.user});
+      this.meetingForm.render();
     },
     remove : function() {
-      this.eventForm.remove();
+      this.meetingForm.remove();
       this.stopListening();
       this.$el.html('');
     }
