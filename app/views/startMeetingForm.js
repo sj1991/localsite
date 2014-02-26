@@ -2,10 +2,14 @@ define(['jquery', 'foundation', 'backbone', 'templates'],
 function($      ,  foundation ,  Backbone,   templates) {
   var StartMeetingFormView = Backbone.View.extend({
     initialize: function(options) {
-      if(options.hasOwnProperty('user') === 'undefined') {
-        throw new Error("No user model specified");
+      if(!options.hasOwnProperty('user')) {
+        throw new Error("No user model given in options");
+      }
+      if(!options.hasOwnProperty('vent')) {
+        throw new Error("No vent given in options");
       }
       this.user = options.user;
+      this.vent = options.vent;
     },
     el : '.startMeetingForm',
     events : {
@@ -15,23 +19,28 @@ function($      ,  foundation ,  Backbone,   templates) {
     closeModal : function() {
       this.$newMeetingModal.foundation('reveal', 'close');
     },
-    createAMeeting : function() {
-      var name = this.$newMeetingModal.find(".name").val();
+    createAMeeting : function(ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
       var triggerDiv = this.$newMeetingModal.find(".triggers");
-      var triggers = {
-        start :  triggerDiv.find(".start").val(),
-        xmin  :  triggerDiv.find(".xmin").val(),
-        end   :  triggerDiv.find(".end").val()
+      var post = {
+        organizationId : this.$el.find('.organization-dropdown').val(),
+        meeting : {
+          name: this.$newMeetingModal.find(".name").val(),
+          triggers : {
+            start :  triggerDiv.find(".start").val(),
+            xmin  :  triggerDiv.find(".xmin").val(),
+            end   :  triggerDiv.find(".end").val()
+          }
+        }
       };
-      alert("todo\nname:" + name + "\ntriggers:\n" + JSON.stringify(triggers));
       this.closeModal();
+      this.vent.trigger("post:createAMeeting", post);
     },
     organizationChanged : function(ev) {
       var optionValue = ev.target.value.trim();
-
-      if(optionValue === "joinOrg") {
-        window.location = "/organizations";
-      } else if(optionValue.length > 0) {
+      //check if a valid organization was selected
+      if(optionValue.length > 0) {
         this.showMeetingsFor(optionValue);
       } else {
         //disable meetings dropdown
@@ -40,6 +49,9 @@ function($      ,  foundation ,  Backbone,   templates) {
         meetingDropdown.html('');
         //disable start meeting button
         this.$el.find('.startMeeting').prop('disabled', true);
+        //disable the new meeting button
+        debug = this.$el;
+        this.$el.find('.revealNewMeetingModal').addClass('disabled');
       }
     },
     showMeetingsFor : function(orgId) {
@@ -48,17 +60,22 @@ function($      ,  foundation ,  Backbone,   templates) {
       //display organizations meetings
       var meetingDropdown = this.$el.find('.meeting-dropdown');
       meetingDropdown.html(html);
-
       //make sure the meeting select dropdown is enabled
       meetingDropdown.removeAttr('disabled');
-
-      //enable the start butotn
+      //enable the start button
       this.$el.find('.startMeeting').removeAttr('disabled');
+      //enable the new meeting button
+      this.$el.find('.revealNewMeetingModal').removeClass('disabled');
     },
     startMeeting : function(ev) {
       ev.preventDefault();
       ev.stopPropagation();
-      alert('todo - start event stuff');
+      var post = {
+        orgId : this.$el.find('.organization-dropdown').val(),
+        meetingId : this.$el.find('.meeting-dropdown').val()
+      };
+      /* Have controller handle this */
+      this.vent.trigger("post:startMeeting", post);
     },
     render : function() {
       this.$el.html(templates['forms/startMeeting/layout'](this.user.toJSONR()));
@@ -79,7 +96,7 @@ function($      ,  foundation ,  Backbone,   templates) {
 
       //Bind ot valid form submission
       this.$newMeetingModal.on('valid', function(ev) {
-        that.createAMeeting();
+        that.createAMeeting(ev);
       });
 
       //Bind to the buttons for adding event triggers

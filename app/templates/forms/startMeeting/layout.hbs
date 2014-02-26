@@ -8,8 +8,6 @@
        {{#each organizations}}
         <option value="{{id}}">{{name}} - {{fullName}}</option>
        {{/each}}
-        <option value=""></option>
-        <option value="joinOrg">--Join an Organization--</option>
       </select>
     </div>
     <div class="small-1 small-pull-1 medium-1 medium-pull-0 columns">
@@ -25,7 +23,7 @@
       </select>
     </div>
     <div class="small-1 small-pull-1 medium-1 medium-pull-0 columns">
-      <a class="button postfix secondary revealNewMeetingModal" style="min-width:3em">+</a>
+      <a class="disabled button postfix secondary revealNewMeetingModal" style="min-width:3em">+</a>
     </div>
   </div>
 
