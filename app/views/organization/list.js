@@ -27,7 +27,7 @@ function($,        Backbone,   templates) {
         Hence the 'other organizations'
     */
     renderOtherOrganizations : function() {
-      var myOrgsIdArr = this.user.getOrgIdArr(); //array of the organizations user belongs to
+      var myOrgsIdArr = this.user.getOrgIds(); //array of the organizations user belongs to
       var html = '';
       var itemTemplate = templates['organization/list/item']; //pointer to template function
 
