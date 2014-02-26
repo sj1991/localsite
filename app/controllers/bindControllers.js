@@ -2,10 +2,10 @@ define(['jquery', 'backbone', 'controllers/home', 'controllers/analyitics', 'con
 function($,        Backbone,   HomeController,     AnalyiticsController   ,  NewTriggerController     ,  OrganizationController) {
   var bindControllers = function(app, user) {
     app.router.on('route:index', function() {
-      app.controller = new HomeController({app: app});
+      app.controller = new HomeController({app: app, user: user});
     });
     app.router.on('route:analyitics', function() {
-      app.controller = new AnalyiticsController({app: app});
+      app.controller = new AnalyiticsController({app: app, user : user});
     });
 
     app.router.on('route:newTrigger', function(triggerType) {

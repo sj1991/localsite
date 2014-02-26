@@ -10,13 +10,20 @@ function(backbone,   OrganizationCollection) {
       return res;
     },
     urlRoot : '/api/user/',
-    getOrgIdArr : function() {
+    getOrgIds : function() {
       var organizations = this.get('organizations');
       var output = [];
       organizations.each(function(organization) {
         output.push(organization.id);
       });
       return output;
+    },
+    /*
+      Recursive toJSON, which converts the collection to a 
+      json obj
+    */
+    toJSONR : function() {
+      return JSON.parse(JSON.stringify(this.attributes));
     }
   });
   return UserModel;

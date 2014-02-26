@@ -26,7 +26,7 @@ require.config({
     "views/nav"                 :  "views/nav",
     "views/home"                :  "views/home",
     "views/analyitics"          :  "views/analyitics",
-    "views/startEventForm"      :  "views/startEventForm",
+    "views/startMeetingForm"    :  "views/startMeetingForm",
     "views/organizations/info"  :  "views/organizations/info",
     "views/organizations/list"  :  "views/organizations/list",
     

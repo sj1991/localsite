@@ -1,0 +1,40 @@
+<h3>Start a Meeting</h3>
+<form class="startMeetingForm">
+  <div class="row collapse">
+    <label>Organization</label>
+    <div class="small-10 medium-11 columns">
+      <select class="organization-dropdown">
+        <option value="">--Please Select One--</option>
+       {{#each organizations}}
+        <option value="{{id}}">{{name}} - {{fullName}}</option>
+       {{/each}}
+        <option value=""></option>
+        <option value="joinOrg">--Join an Organization--</option>
+      </select>
+    </div>
+    <div class="small-1 small-pull-1 medium-1 medium-pull-0 columns">
+      <a class="button postfix secondary joinAnOrganization" href="/organizations" style="min-width:3em;">+</a>
+    </div>
+  </div>
+
+  <div class="row collapse">
+    <label>Meeting Name</label>
+    <div class="small-10 medium-11 columns">
+      <select disabled="disabled" class="meeting-dropdown">
+        
+      </select>
+    </div>
+    <div class="small-1 small-pull-1 medium-1 medium-pull-0 columns">
+      <a class="button postfix secondary revealNewMeetingModal" style="min-width:3em">+</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <button type="submit" class="button startMeeting" disabled="true">Start Meeting</button>
+    </div>
+  </div>
+</form>
+
+{{> newMeetingModal }}
+

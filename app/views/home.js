@@ -1,16 +1,22 @@
-define(['jquery', 'backbone', 'templates', 'views/startEventForm'],
-function($,        Backbone,   templates,   StartEventFormView) {
+define(['jquery', 'backbone', 'templates', 'views/startMeetingForm'],
+function($,        Backbone,   templates,   StartMeetingFormView) {
   var HomeView = Backbone.View.extend({
     el : '.site-content',
     events : {
     },
+    initialize: function(options) {
+     if(options.hasOwnProperty('user') === 'undefined') {
+        throw new Error("No user model specified");
+      }
+      this.user = options.user;
+    },
     render : function() {
       this.$el.html(templates['home/main']());
-      this.eventForm = new StartEventFormView();
-      this.eventForm.render();
+      this.meetingForm = new StartMeetingFormView({user: this.user});
+      this.meetingForm.render();
     },
     remove : function() {
-      this.eventForm.remove();
+      this.meetingForm.remove();
       this.stopListening();
       this.$el.html('');
     }
