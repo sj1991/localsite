@@ -1,7 +1,7 @@
 define(["jquery", "backbone"],
 function($,        Backbone) {
-  function triggerController(app, triggerType) {
-    alert("HI - triggerType: " + triggerType);
+  function TriggerController(options) {
+    alert("HI - triggerType: " + options.triggerType);
   }
-  return triggerController;
+  return TriggerController;
 });

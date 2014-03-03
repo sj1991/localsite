@@ -12,6 +12,7 @@ define(function(require, exports, module) {
       "triggers/new/:triggerType" : "newTrigger",
       "organizations(/)" : "organizations",
       "organizations/:orgId" : "organizations",
+      "meeting/:orgId/:meetingId" : "checkinGuest"
     },
 
     index: function() {

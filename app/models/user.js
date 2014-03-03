@@ -1,5 +1,5 @@
-define(['backbone', "collections/organization"],
-function(backbone,   OrganizationCollection) {
+define(['backbone', "collections/organization", "collections/meeting"],
+function(backbone,   OrganizationCollection   ,  MeetingCollection   ) {
   var UserModel = Backbone.Model.extend({
     initialize: function(options) {
       this.set('id', options.id);
@@ -7,22 +7,19 @@ function(backbone,   OrganizationCollection) {
     parse : function(res) {
       //convert to organization collection
       res.organizations = new OrganizationCollection(res.organizations);
+      res.organizations.each(function(organization) {
+        //Make the meetings property a collection
+        organization.set("meetings", new MeetingCollection(organization.get('meetings')));
+      });
       return res;
     },
     urlRoot : '/api/user/',
-    getOrgIds : function() {
-      var organizations = this.get('organizations');
-      var output = [];
-      organizations.each(function(organization) {
-        output.push(organization.id);
-      });
-      return output;
-    },
     /*
       Recursive toJSON, which converts the collection to a 
       json obj
     */
     toJSONR : function() {
+      debug = JSON.parse(JSON.stringify(this.attributes));
       return JSON.parse(JSON.stringify(this.attributes));
     }
   });

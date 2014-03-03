@@ -4,7 +4,6 @@ require.config({
   paths: {
     // Make vendor easier to access.
     "vendor": "../vendor",
-
     // Almond is used to lighten the output filesize.
     "almond": "../vendor/bower/almond/almond",
 
@@ -29,13 +28,15 @@ require.config({
     "views/startMeetingForm"    :  "views/startMeetingForm",
     "views/organizations/info"  :  "views/organizations/info",
     "views/organizations/list"  :  "views/organizations/list",
-    
+    "views/checkinGuest"        :  "views/checkinGuest",
     //Models
     "models/user" : "models/user",
     "models/organization" : "models/organization",
-
+    "models/meeting"      : "models/meeting",
+    
     //Collections
     "collections/organization" : "collections/organization",
+    "collections/meeting"      : "collections/meeting",
 
     //Controllers
     "controllers/bindControllers" : "controllers/bindControllers",
@@ -44,7 +45,8 @@ require.config({
     "controllers/home"  : "controllers/home",
     "controllers/analyitics" : "controllers/analyitics",
     "controllers/triggers/new" : "controllers/triggers/new",
-    "controllers/organization" : "controllers/organization"
+    "controllers/organization" : "controllers/organization",
+    "controllers/checkinGuest" : "controllers/checkinGuest"
   },
 
   shim: {

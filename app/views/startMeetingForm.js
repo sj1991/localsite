@@ -56,7 +56,7 @@ function($      ,  foundation ,  Backbone,   templates) {
     },
     showMeetingsFor : function(orgId) {
       var meetings = this.user.get('organizations').get(orgId).get('meetings');
-      var html = templates['forms/startMeeting/meetings'](meetings);
+      var html = templates['forms/startMeeting/meetings'](meetings.toJSON());
       //display organizations meetings
       var meetingDropdown = this.$el.find('.meeting-dropdown');
       meetingDropdown.html(html);

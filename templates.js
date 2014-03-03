@@ -43,6 +43,20 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
+this["templates"]["checkinGuest/wrapper"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<section id=\"checkinGuest\" class=\"small-12 columns\">\n  <h3>"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.organization)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + " - "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.meeting)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</h3>\n  <form id=\"checkinAGuest\">\n    <div class=\"row\">\n      <div class=\"small-12 columns\">\n        <label>Input Guest Id (GTID or GT-Username):\n          <input type=\"text\" id=\"guestId\" type=\"text\" placeholder=\"E.g: 902634095 or gburdell3\" autofocus=\"autofocus\">\n        </label>\n      </div>\n    </div>\n  </form>\n</section>\n<section class=\"small-12 columns\" id=\"checkedinGuests\">\n  <h4>Checkedin Guests:</h4>\n  <div class=\"row collapse\">\n    <h5>12:45pm - Colin Bookman <img src=\"http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/512/new-icon.png\" width=\"25px\" height=\"25px\"><img src=\"http://www.psdgraphics.com/wp-content/uploads/2009/07/email-icon-graphic.gif\" width=\"25px\" height=\"25px\"></h5>\n  </div>\n  <div class=\"row collapse\">\n    <h5>12:30pm - Colin Bookman</h5>\n  </div>\n  <div class=\"row collapse\">\n    <h5>12:25pm - Colin Bookman</h5>\n  </div>\n</section>";
+  return buffer;
+  });
+
 this["templates"]["example"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); partials = this.merge(partials, Handlebars.partials); data = data || {};
