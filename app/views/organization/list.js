@@ -20,24 +20,24 @@ function($,        Backbone,   templates) {
         html += itemTemplate(organization.toJSON());
       });
 
-      this.$el.find('.my-organizations').html(html);
+      this.$el.find('section#myOrganizations ul').html(html);
     },
     /*
         Only displays orgs which I don't belong to
         Hence the 'other organizations'
     */
     renderOtherOrganizations : function() {
-      var myOrgsIdArr = this.user.getOrgIds(); //array of the organizations user belongs to
+      //var myOrgsIdArr = this.user.getOrgIds(); //array of the organizations user belongs to
       var html = '';
       var itemTemplate = templates['organization/list/item']; //pointer to template function
-
+      var usersOrganizations = this.user.get("organizations");
+      
       this.organizations.each(function(organization) {
-        if(myOrgsIdArr.indexOf(organization.id) === -1) {
+        if(!usersOrganizations.get(organization.id)) {
           html += itemTemplate(organization.toJSON());
         }
       });
-
-      this.$el.find('.other-organizations').html(html);
+      this.$el.find('section#otherOrganizations ul').html(html);
     },
     remove : function() {
       this.stopListening();

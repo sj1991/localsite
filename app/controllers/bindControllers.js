@@ -28,6 +28,10 @@ function($      ,  _          ,  Backbone ,  HomeController   ,  AnalyiticsContr
         orgId: orgId
       });
     });
+
+    app.router.on('route:newOrganizationForm', function() {
+      window.location.href= "http://jacketpages.gatech.edu/pages/contact";
+    });
     app.router.on('route:checkinGuest', function(orgId, meetingId) {
       app.views.current = new CheckinGuestController({
         app : app,
