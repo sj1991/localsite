@@ -1,4 +1,4 @@
-<?php
+<?php include(config.php)
 //Instatiate the SLIM framework
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
