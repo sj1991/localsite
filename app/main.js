@@ -34,7 +34,7 @@ require(["config"], function() {
         Backbone.history.start({ pushState: true, root: app.root });
       },
       error : function(m, r)  {
-        ( new ErrorPage() ).render("Could not load user: " + JSON.stringify(r));
+        ( new ErrorPage() ).render("Could not load user account");
       }
     });
   });

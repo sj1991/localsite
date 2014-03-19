@@ -8,10 +8,12 @@ define(function(require, exports, module) {
   module.exports = Backbone.Router.extend({
     routes: {
       "(/)": "index",
-      "analyitics(/)" : "analyitics",
+      "analyitics" : "analyitics",
       "triggers/new/:triggerType" : "newTrigger",
-      "organizations(/)" : "organizations",
+      "organizations" : "organizations",
+      "organizations/new"    : "newOrganizationForm",
       "organizations/:orgId" : "organizations",
+      "meeting/:orgId/:meetingId" : "checkinGuest"
     },
 
     index: function() {
