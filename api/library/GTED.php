@@ -5,11 +5,11 @@ Class GTED {
     $ldapConfig = $config["ldap"];
     $this->tree = $ldapConfig["tree"];
     $this->rfidCardLength = $ldapConfig["rfidCardLength"];
-    $this->_link = $ldapconn = ldap_connect($ldapConfig["host"], $ldapConfig["port"]);
-    if(!$this->_link) {
+    $this->link = $ldapconn = ldap_connect($ldapConfig["host"], $ldapConfig["port"]);
+    if(!$this->link) {
       throw new Exception("Unable to connect to the LDAP database");
     } else {
-      $ldapBind = ldap_bind($this->_link, $ldapConfig["rdn"], $ldapConfig["password"]);
+      $ldapBind = ldap_bind($this->link, $ldapConfig["rdn"], $ldapConfig["password"]);
       if(!$ldapBind) {
         throw new Exception("Unable to bind to the LDAP database");
       }
@@ -34,7 +34,7 @@ Class GTED {
         $ldapQuery .= "($key=$value)";
       }
     }
-    $results = ldap_search($this->_link, $this->tree, $ldapQuery);
+    $results = ldap_search($this->link, $this->tree, $ldapQuery);
     if(!$results) {
       return false;
     } else {
@@ -48,7 +48,7 @@ Class GTED {
   private function filter($result, $from, $maxSize) {
     $output = [];
     $currEntry = 0;
-    $entries = ldap_get_entries($this->_link, $result);
+    $entries = ldap_get_entries($this->link, $result);
     $numEntries = $entries["count"];
     for($i = $from; $i < $maxSize && $i < $numEntries; ++$i) {
       array_push($output, $entries[$i]);

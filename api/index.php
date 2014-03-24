@@ -16,7 +16,6 @@ spl_autoload_register(function ($class_name) {
         require_once($file);
     }
 });
-
 //Binds our routes
 require "./router.php";
 

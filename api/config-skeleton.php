@@ -1,18 +1,12 @@
 <?php
 return [
     "dbs" => [
-      "jacketpages" => [
-        "host" =>  "localhost",
-        "username"=> "evitics",
-        "password"=> "**********",
-        "type"=> "mysql"
-      ],
-      "localsite" => [
-        "host" =>  "localhost",
-        "username"=> "evitics",
-        "password"=> "**********",
-        "type"=> "mysql"
-      ] 
+      "databaseName" => [
+        "type" => "mysql",
+        "host" => "localhost",
+        "username" =>"*****",
+        "password" => "*****"
+      ]
     ],
     /*
       Configuration for the local site's ldap directory
