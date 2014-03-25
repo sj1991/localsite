@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'controllers/home', 'controllers/analyitics', 'controllers/triggers/new', 'controllers/organization'],
-function($      ,  _          ,  Backbone ,  HomeController   ,  AnalyiticsController   ,  NewTriggerController     ,  OrganizationController) {
+define(['jquery', 'underscore', 'backbone', 'controllers/home', 'controllers/analyitics', 'controllers/triggers/new', 'controllers/organization', 'controllers/checkinGuest'],
+function($      ,  _          ,  Backbone ,  HomeController   ,  AnalyiticsController   ,  NewTriggerController     ,  OrganizationController   ,  CheckinGuestController) {
   var bindControllers = function(app, user) {
     var vent = _.extend({}, Backbone.Events);
 
@@ -28,12 +28,27 @@ function($      ,  _          ,  Backbone ,  HomeController   ,  AnalyiticsContr
         orgId: orgId
       });
     });
+
+    app.router.on('route:newOrganizationForm', function() {
+      window.location.href= "http://jacketpages.gatech.edu/pages/contact";
+    });
+    app.router.on('route:checkinGuest', function(orgId, meetingId) {
+      app.views.current = new CheckinGuestController({
+        app : app,
+        user: user,
+        vent: vent,
+        orgId: orgId,
+        meetingId: meetingId
+      });
+    });
     /*
       Vent Actions
     */
     vent.bind("post:startMeeting", function(post) {
-      alert("Starting Meeting...");
-      alert(JSON.stringify(post));
+       if(post.hasOwnProperty('orgId') && post.hasOwnProperty('meetingId')) {
+        app.views.current.remove();
+        app.router.navigate("/meeting/" + post.orgId + "/" + post.meetingId, {trigger :true});
+      }
     });
     vent.bind("post:createAMeeting", function(post) {
       alert("Creating Meeting...");
