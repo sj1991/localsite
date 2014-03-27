@@ -19,7 +19,7 @@
     <!-- If no javascript give warning -->
     <noscript>Please enable javascript</noscript>
 
-    <div class="inner-wrap">
+    <div id="inner-wrapping" class="inner-wrap">
       <!-- Full Screen Navbar -->
       <div class="sticky">
         <nav class="top-bar hide-for-small hide-for-medium NavView" data-topbar></nav>
@@ -52,11 +52,11 @@
     var userId = 'gburdell3';
   </script>
   <script>
+    var debug = null; //debug variable
     //make sure that the side mobile nav is at least the full window height
     (function() {
-      document.getElementsByClassName('inner-wrap')[0].style.minHeight = window.innerHeight + 'px';
+      document.getElementById('inner-wrapping').style.minHeight = window.innerHeight + 'px';
     })();
-    var debug = null;
 
   </script>
   <!-- Application source. -->
