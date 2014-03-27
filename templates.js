@@ -43,6 +43,68 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
+this["templates"]["checkinGuest/checkIns"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n        ";
+  stack1 = helpers.unless.call(depth0, (depth0 && depth0.invalid), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n      ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, stack2;
+  buffer += "\n          <div class=\"row collapse\">\n            <h5>\n              ";
+  if (stack1 = helpers.checkinTime) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.checkinTime); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + " - "
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.name)),stack1 == null || stack1 === false ? stack1 : stack1.full)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\n              ";
+  stack2 = helpers['if'].call(depth0, (depth0 && depth0.isNew), {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n            </h5>\n          </div>\n        ";
+  return buffer;
+  }
+function program3(depth0,data) {
+  
+  
+  return " <img src=\"http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/512/new-icon.png\" width=\"25px\" height=\"25px\"> ";
+  }
+
+  buffer += "<div class=\"row collapse\">\n  <div class=\"large-4 columns\">\n    <div class=\"row collapse\">\n      <h3>Statistics</h3>\n      <ul>\n        <li>"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.statistics)),stack1 == null || stack1 === false ? stack1 : stack1.attendance)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + " Guests Atending</li>\n        <li>"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.statistics)),stack1 == null || stack1 === false ? stack1 : stack1.rate)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + " Guests/min</li>\n        <li>"
+    + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.statistics)),stack1 == null || stack1 === false ? stack1 : stack1.newMembers)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + " New Members</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"large-8 columns\">\n    <h3>Checkedin Guests:</h3>\n      ";
+  stack2 = helpers.each.call(depth0, (depth0 && depth0.checkins), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n  </div>\n</div>";
+  return buffer;
+  });
+
+this["templates"]["checkinGuest/error"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<div data-alert=\"\" class=\"alert-box alert round\">\n  Invalid Id: ";
+  if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.id); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\n  <a href=\"\" class=\"close\">×</a>\n</div>";
+  return buffer;
+  });
+
 this["templates"]["checkinGuest/wrapper"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -53,7 +115,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.organization)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + " - "
     + escapeExpression(((stack1 = ((stack1 = (depth0 && depth0.meeting)),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</h3>\n  <form id=\"checkinAGuest\">\n    <div class=\"row\">\n      <div class=\"small-12 columns\">\n        <label>Input Guest Id (GTID or GT-Username):\n          <input type=\"text\" id=\"guestId\" type=\"text\" placeholder=\"E.g: 902634095 or gburdell3\" autofocus=\"autofocus\">\n        </label>\n      </div>\n    </div>\n  </form>\n</div>\n\n<div class=\"small-12 columns\" id=\"checkedinGuests\">\n  <div class=\"row collapse\">\n    <div class=\"large-4 columns\">\n      <div class=\"row collapse\">\n        <h3>Statistics</h3>\n        <ul>\n          <li>53 Guests Atending</li>\n          <li>5 Guests/min</li>\n          <li>10 New Members</li>\n        </ul>\n      </div>\n      <div class=\"row collapse\">\n        <h3>Event Information</h3>\n        <ul>\n          <li>\n            Triggers:\n            <ul>\n              <li>New Member: Email</li>\n            </ul>\n          </li>\n          <li>Location: Culc 204</li>\n        </ul>\n      </div>\n    </div>\n    <div class=\"large-8 columns\">\n      <h3>Checkedin Guests:</h3>\n      <div class=\"row collapse\">\n        <h5>12:45pm - Colin Bookman <img src=\"http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/512/new-icon.png\" width=\"25px\" height=\"25px\"><img src=\"http://www.psdgraphics.com/wp-content/uploads/2009/07/email-icon-graphic.gif\" width=\"25px\" height=\"25px\"></h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:30pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n      <div class=\"row collapse\">\n        <h5>12:25pm - Colin Bookman</h5>\n      </div>\n    </div>\n  </div>\n</div>";
+    + "</h3>\n  <form id=\"checkinAGuest\">\n    <div class=\"row\">\n      <div class=\"small-12 columns\">\n        <label>Input Guest Id (GTID or GT-Username):\n          <input type=\"text\" id=\"guestId\" type=\"text\" placeholder=\"E.g: 902634095 or gburdell3\" autofocus=\"autofocus\">\n        </label>\n      </div>\n    </div>\n  </form>\n</div>\n\n<div class=\"small-12 columns\" id=\"checkedinGuests\">\n\n</div>";
   return buffer;
   });
 
@@ -175,7 +237,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.name); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\n  <li><a href=\"/\">Home</a></li>\n  <li><a href=\"/organizations\">Organizations</a></li>\n  <li><a href=\"/analyitics\">Analyitics</a></li>\n  <li><a href=\"/marketing\">Marketing</a></li>\n  <li><a href=\"/help\">Help</a></li>\n  <li><a href=\"https://login.gatech.edu/cas/login?service=https://critique.gatech.edu\">Login</a></li>\n</ul>\n";
+    + "\n  <li><a href=\"/\">Home</a></li>\n  <li><a href=\"/organizations\">Organizations</a></li>\n  <li><a href=\"/analyitics\">Analyitics</a></li>\n  <li><a href=\"/marketing\">Marketing</a></li>\n  <li><a href=\"/triggers\">Triggers</a></li>\n  <li><a href=\"/help\">Help</a></li>\n  <li><a href=\"https://login.gatech.edu/cas/login?service=https://critique.gatech.edu\">Login</a></li>\n</ul>\n";
   return buffer;
   });
 
@@ -185,7 +247,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<ul class=\"title-area\">\n  <li class=\"name\">\n    <h1><a href=\"/\">Evitics</a></h1>\n  </li>\n</ul>\n<section class=\"top-bar-section\"> \n  <ul class=\"right\">\n    <li class=\"divider\"></li>\n    <li><a href=\"/organizations\">Organizations</a></li>\n\n    <li class=\"divider\"></li>\n    <li><a href=\"/analyitics\">Analytics</a></li>\n\n    <li class=\"divider\"></li>\n    <li><a href=\"/marketing\">Marketing</a></li>\n    \n    <li class=\"divider\"></li>\n    <li><a href=\"/help\">Help</a></li>\n\n    <li class=\"active\"><a href=\"https://login.gatech.edu/cas/login?service=https://evitics.gatech.edu/login.php\">Login</a></li>\n  </ul> \n  <!-- Left Nav Section --> \n  <ul class=\"left\">\n  </ul>\n</section>";
+  return "<ul class=\"title-area\">\n  <li class=\"name\">\n    <h1><a href=\"/\">Evitics</a></h1>\n  </li>\n</ul>\n<section class=\"top-bar-section\"> \n  <ul class=\"right\">\n    <li class=\"divider\"></li>\n    <li><a href=\"/organizations\">Organizations</a></li>\n\n    <li class=\"divider\"></li>\n    <li><a href=\"/analyitics\">Analytics</a></li>\n\n    <li class=\"divider\"></li>\n    <li><a href=\"/marketing\">Marketing</a></li>\n    \n    <li class=\"divider\"></li>\n    <li><a href=\"/triggers\">Triggers</a></li>\n    \n    <li class=\"divider\"></li>\n    <li><a href=\"/help\">Help</a></li>\n\n    <li class=\"active\"><a href=\"https://login.gatech.edu/cas/login?service=https://evitics.gatech.edu/login.php\">Login</a></li>\n  </ul> \n  <!-- Left Nav Section --> \n  <ul class=\"left\">\n  </ul>\n</section>";
   });
 
 this["templates"]["organization/info"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
