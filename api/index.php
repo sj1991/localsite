@@ -1,4 +1,21 @@
+<<<<<<< HEAD
 <?php include(config.php)
+=======
+<?php
+//Make sure user is logged in
+$_ENV["REMOTE_USER"] = "gburdell3"; //remove when not testing
+
+if(empty($_ENV["REMOTE_USER"])) {
+  echo '{"error" : "not logged in"}'; 
+  return;
+  throw new Error("User Not Logged In");
+
+} else {
+  $GLOBALS["USERNAME"] = $_ENV["REMOTE_USER"];//$_ENV["REMOTE_USER"];
+}
+
+
+>>>>>>> upstream/master
 //Instatiate the SLIM framework
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
@@ -18,6 +35,9 @@ spl_autoload_register(function ($class_name) {
 });
 //Binds our routes
 require "./router.php";
+
+
+
 
 $app->run();
 ?>
