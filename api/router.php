@@ -1,20 +1,13 @@
-<<<<<<< HEAD
-<?php include(config.php)
-=======
 <?php
 
 $app->get('/user/:id', function($id) { User::get($id); });
->>>>>>> upstream/master
 
 //require "routes/User.php";
 $app->get('/user/:id', function($id){ User::get($id); });
 $app->get('/organizations', function() { Organization::getAll(); });
-$app->get('/organization/:id', function($id) { Organization::get($id); });
-$app->post('/organization/join/:id', function($id) { Organization::join($id); });
-$app->post('/organization/memberPermission/:id', function($id) { User::permissions($id); });
-<<<<<<< HEAD
-$app-delete({});
-=======
+$app->get('/organizations/:id', function($id) { Organization::get($id); });
+$app->post('/organizations/join/:id', function($id) { Organization::join($id); });
+$app->post('/organizations/memberPermission/:id', function($id) { User::permissions($id); });
 
 //Gets the current checkins
 $app->get('/checkin/:orgId/:meetingId', function($orgId, $meetingId) {
@@ -111,7 +104,6 @@ $app->post('/checkin/:orgId/:meetingId/:userId', function($orgId, $meetingId, $u
     }
   }';
 });
->>>>>>> upstream/master
 $app->notFound(function () use ($app) {
    echo '{ "error" : "invalid API call"}';
 });
