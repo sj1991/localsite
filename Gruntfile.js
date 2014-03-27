@@ -23,6 +23,7 @@ module.exports = function(grunt) {
         },
       }
     },
+
     // This task uses James Burke's excellent r.js AMD builder to take all
     // modules and concatenate them into a single file.
     requirejs: {
@@ -219,7 +220,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-karma-coveralls");
   grunt.loadNpmTasks("grunt-processhtml");
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks("grunt-contrib-handlebars");
   // Grunt BBB tasks.
   grunt.loadNpmTasks("grunt-bbb-server");
   grunt.loadNpmTasks("grunt-bbb-requirejs");
