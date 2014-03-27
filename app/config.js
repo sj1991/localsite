@@ -37,7 +37,8 @@ require.config({
     //Collections
     "collections/organization" : "collections/organization",
     "collections/meeting"      : "collections/meeting",
-
+    "collections/checkIns.js"  : "collecitons/checkIns",
+    
     //Controllers
     "controllers/bindControllers" : "controllers/bindControllers",
     "controllers/bindLinksToBackbone" : "controllers/bindLinksToBackbone",
