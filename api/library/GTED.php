@@ -46,7 +46,7 @@ Class GTED {
     if no results match params, then returns a boolean false
   */
   private function filter($result, $from, $maxSize) {
-    $output = [];
+    $output= array();
     $currEntry = 0;
     $entries = ldap_get_entries($this->link, $result);
     $numEntries = $entries["count"];
