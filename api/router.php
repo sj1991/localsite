@@ -1,6 +1,6 @@
 <?php
 
-$app->get('/user/:id', function($id) { User::get($id); });
+//$app->get('/user/:id', function($id) { User::get($id); });
 
 //require "routes/User.php";
 $app->get('/user/:id', function($id){ User::get($id); });
