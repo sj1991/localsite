@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<?php include(config.php)
-=======
 <?php
 //Make sure user is logged in
 $_ENV["REMOTE_USER"] = "gburdell3"; //remove when not testing
@@ -14,8 +11,6 @@ if(empty($_ENV["REMOTE_USER"])) {
   $GLOBALS["USERNAME"] = $_ENV["REMOTE_USER"];//$_ENV["REMOTE_USER"];
 }
 
-
->>>>>>> upstream/master
 //Instatiate the SLIM framework
 require 'vendor/autoload.php';
 $app = new \Slim\Slim();
